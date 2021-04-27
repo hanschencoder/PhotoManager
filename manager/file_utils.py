@@ -4,15 +4,11 @@ import exifread
 import datetime
 
 image_suffix = [
-    'bmp', 'jpg', 'png', 'tif', 'gif', 'pcx', 'tga', 'exif', 'fpx', 'svg',
-    'psd', 'cdr', 'pcd', 'dxf', 'ufo', 'eps', 'ai', 'raw', 'wmf', 'webp',
-    'avif'
+    'bmp', 'jpg', 'png', 'tif', 'gif', 'pcx', 'tga', 'exif', 'fpx', 'svg', 'psd', 'cdr', 'pcd', 'dxf', 'ufo', 'eps',
+    'ai', 'raw', 'wmf', 'webp', 'avif'
 ]
 
-video_suffix = [
-    'mp4', 'mov', 'avi', 'flv', 'mpeg', 'mkv', 'asf', 'rm', 'rmvb', 'vob',
-    'ts', 'dat'
-]
+video_suffix = ['mp4', 'mov', 'avi', 'flv', 'mpeg', 'mkv', 'asf', 'rm', 'rmvb', 'vob', 'ts', 'dat']
 
 
 def isImage(suffix):
@@ -40,8 +36,7 @@ def resolveSavePath(archiveDir, filePath):
             date = datetime.datetime.strptime(str(tags[timeKey]), '%Y:%m:%d %H:%M:%S').replace(microsecond=0)
             filaname = formatFilename(date)
     if filaname == None:
-        lastModified = datetime.datetime.fromtimestamp(
-            os.path.getmtime(filePath)).replace(microsecond=0)
+        lastModified = datetime.datetime.fromtimestamp(os.path.getmtime(filePath)).replace(microsecond=0)
         filaname = formatFilename(lastModified)
 
     extension = os.path.splitext(filePath)[1].strip()
